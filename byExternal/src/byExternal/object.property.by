@@ -1,0 +1,18 @@
+﻿ku byExternal
+{
+    system biao object.property "面向对象属性表" (
+    string belong "所属类型"
+    , string name "名称"
+    , string[] scenes "场景"
+    , string[] modifiers "修饰符"
+    , string type "类型"
+    , OBJECT value "值")
+    {
+        //{ IO, logPath "当前log路径及文件名", {  }, { static }, string,  } 
+        { mail, host"主机地址  如：smtp.126.com", {  }, { static }, string,  }
+        { mail, userName"用户名", {  }, { static }, string,  }
+        { mail, password"密码", {  }, { static }, string,  }
+    }
+}
+
+ 

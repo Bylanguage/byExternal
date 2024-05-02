@@ -1,0 +1,20 @@
+﻿ku byExternal
+{
+    system biao object "面向对象类型表" (
+    string name "名称"
+    , string[] scenes "场景"
+    , string[] modifiers "修饰符"
+    , string kind "类型类别"
+    , string inheritance "继承项"
+    , string[] implementations "实现项")
+    {
+        { security "安7全 RSA  MD5 AES ", { client, server, web }, { external }, class, , {  } } 
+        { UUID "uuid", {client,server}, { external }, class, , {  } }
+        { encoders "编码",{client,web,server} , { external }, class, , {  } }
+        { httpWebRequest"根据一个URL获取一个网页", { client, server }, {external  }, class, , {  } }
+        { random "随机数", {client,web,server} , { external }, class, , {  } }
+        { snowflake "雪花算法ID生成", {client,server}, { external }, class, , {  } }
+        { mail "发送邮件", {  server }, { external }, class, , {  } } 
+        { hardware, { client, server }, { external }, class, , {  } }
+    }
+}

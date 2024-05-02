@@ -1,0 +1,41 @@
+﻿ku byExternal
+{
+    system biao object.method "面向对象方法表" (
+    string belong "所属类型"
+    , string name "名称"
+    , string[] scenes "场景"
+    , string[] modifiers "修饰符"
+    , string[] parameters "参数"
+    , string returnType "返回类型"
+    , string body "方法体")
+    {
+        { security, md5, {  }, { static }, { string f_sourceTxt "要加密的文本"  }, string,  }
+        { security, AESEncrypt "AES加密(无向量),返回密文", {client ,web, server  }, { static }, { string Data "被加密的明文", string Key"密钥" }, string ,  }
+        { security, AESDecrypt "AES解密(无向量)", { client ,web, server }, {static}, { string Data "要解密的密文", string Key"密钥" }, string ,  }
+        { security, rsaCreatePublicKeyAndPrivateKey "RSA产生一个公钥、私钥返回一个数组[publicKey,privateKey]", { client ,web, server }, {static}, { }, string[] ,  }
+        { security, rsaEncrypt "rsa加密，加密字符串长度不要超过245个字符(单字节字符即ascii<256),加密结果为一个固定长度为344的字符串", { client ,web, server }, {static}, {string f_conent"要加密的内容", string f_publicKey"公钥" }, string ,  }
+        { security, rsaDecrypt "rsa解密", { client ,web, server }, {static}, {string f_conent"要解密的内容", string f_privateKey"私钥" }, string ,  }
+        { security, DESEncrypt "DES加密,返回密文", {web  }, { static }, { string Data "被加密的明文", string Key"密钥" }, string ,  }
+        { security, DESDecrypt "DES解密", { web }, {static}, { string Data "要解密的密文", string Key"密钥" }, string ,  }
+        { security, DESTripleEncrypt "Triple DES加密,返回密文", {web  }, { static }, { string Data "被加密的明文", string Key"密钥" }, string ,  }
+        { security, DESTripleDecrypt "Triple DES解密", { web }, {static}, { string Data "要解密的密文", string Key"密钥" }, string ,  }
+        { security, RabbitEncrypt "Rabbit加密,返回密文", {web  }, { static }, { string Data "被加密的明文", string Key"密钥" }, string ,  }
+        { security, RabbitDecrypt "Rabbit解密", { web }, {static}, { string Data "要解密的密文", string Key"密钥" }, string ,  }
+        { security, RC4Encrypt "RC4加密,返回密文", {web  }, { static }, { string Data "被加密的明文", string Key"密钥" }, string ,  }
+        { security, RC4Decrypt "RC4解密", { web }, {static}, { string Data "要解密的密文", string Key"密钥" }, string ,  }
+        { security, RC4DropEncrypt "RC4Drop加密,返回密文", {web  }, { static }, { string Data "被加密的明文", string Key"密钥" }, string ,  }
+        { security, RC4DropDecrypt "RC4Drop解密", { web }, {static}, { string Data "要解密的密文", string Key"密钥" }, string ,  }
+        { UUID    , newGuid "返回唯一识别码", , { static }, {  }, string,}
+        { encoders, base64Encode "Base64编码，采用utf8编码方式编码", , { static }, { string f_content"要编码的文本" }, string,}
+        { encoders, base64Decode "Base64解码，采用utf8编码方式解码", , { static  }, { string  f_base64Content"要解码的base64文本" }, string,}
+        { httpWebRequest, getPage "获取获取一个网页", {  }, { static }, { string f_pageUrl"网页URL" }, string, }
+        { httpWebRequest, getPage "获取获取一个网页", {  }, { static }, { string f_pageUrl"网页URL", string f_encode"编码" }, string,  }
+        { random  , next "返回非负随机数", , { static }, {  }, int,} 
+        { random  , next "返回一个大于等于 minValue 且小于 maxValue 的 32 位带符号整数，maxValue 必须大于或等于 minValue", , { static }, { int minValue "最小值", int maxValue "最大值" }, int,}
+        { random  , next "返回一个小于所指定最大值的非负随机数，maxValue 必须大于或等于零", , { static }, { int maxValue "最大值"}, int,}
+        { random  , nextDouble "返回一个介于 0.0 和 1.0 之间的随机数", , { static }, {  }, double,} 
+        { snowflake, nextId "返回一个由雪花算法生成的随机数", , {  }, {  }, long,}
+        { mail    , send "发送邮件", { server }, { static }, { string f_email"发给谁", string f_title"标题", string f_content "内容"}, bool,  }
+        { hardware, getCPU "获取cpu序列号", {  }, { static }, {  }, string,  } 
+    }
+}
